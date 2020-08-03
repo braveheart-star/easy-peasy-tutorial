@@ -1,11 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { basket } from "../data";
+import { useStoreState } from "easy-peasy";
 
 export default function BasketCount() {
-  return (
-    <div className="BasketCount">
-      <Link to="/basket">Basket({basket.length} items)</Link>
-    </div>
-  );
+  const basketCount = useStoreState((state) => state.basket.productIds.length);
 }
