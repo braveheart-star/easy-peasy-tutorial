@@ -6,10 +6,7 @@ export default function Product({ id }) {
   const addProductToBasket = useStoreActions(
     (actions) => actions.basket.addProduct
   );
-  const product = useStoreState((state) =>
-    state.products.items.find((product) => product.id === id)
-  );
-
+  const product = useStoreState((state) => state.products.getById(id));
   // state to track when we are saving to basket
   const [adding, setAdding] = useState(false);
 
