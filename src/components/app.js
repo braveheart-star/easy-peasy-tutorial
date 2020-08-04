@@ -4,6 +4,7 @@ import Basket from "./basket";
 import Header from "./header";
 import Product from "./product";
 import ProductList from "./product-list";
+import AuditLog from "./audit-log";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
           />
           <Route path="/basket" exact component={Basket} />
         </Switch>
+        <AuditLog />
       </div>
     </BrowserRouter>
   );

@@ -1,22 +1,24 @@
 import React from "react";
-
-import { useStoreState, useStoreActions } from "easy-peasy"; // 👈 import the hook
+import { Link } from "react-router-dom";
+import { useStoreActions, useStoreState } from "easy-peasy";
 
 export default function Basket() {
-  //  map our action 👇
   const removeProductFromBasket = useStoreActions(
     (actions) => actions.basket.removeProduct
   );
-
-  //       👇  map the state from store
   const basketProducts = useStoreState((state) => state.basket.products);
 
   return (
     <div>
-      {basketProducts.map((product, idx) => (
-        <button onClick={() => removeProductFromBasket(idx)}>Remove</button>
-      ))}
-      {/* ... */}
+      <h2>The merchandise</h2>
+      <ul>
+        {basketProducts.map((product, idx) => (
+          <li key={idx}>
+            <Link to={`/product/${product.id}`}>{product.name}</Link>{" "}
+            <button onClick={() => removeProductFromBasket(idx)}>Remove</button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
