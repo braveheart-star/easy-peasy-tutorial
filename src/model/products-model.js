@@ -5,7 +5,7 @@ const productsModel = {
     { id: 1, name: "Broccoli", price: 2.5 },
     { id: 2, name: "Carrots", price: 4 },
   ],
-  getById: computed((state, id) =>
+  getById: computed((state) => (id) =>
     state.items.find((product) => product.id === id)
   ),
 };
